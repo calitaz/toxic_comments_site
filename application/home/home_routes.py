@@ -5,14 +5,14 @@ import datetime
 
 home_bp = Blueprint('home_bp', __name__,
                     template_folder='templates',
-                    static_folder='static')
+                    static_folder='../static')
 
 ## Route for main web index
 @home_bp.route('/')
 def home():
     conn = mysqlconfg.connection()
     cur = conn.cursor()
-    cur.execute("SELECT id,comments FROM comments ORDER BY RAND() LIMIT 1")
+    cur.execute("SELECT id,comment FROM comments ORDER BY RAND() LIMIT 1")
     fetchdata = cur.fetchone()
     conn.close()
 
