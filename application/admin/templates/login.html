@@ -32,7 +32,7 @@
                         <i class="material-icons">face</i>
                       </span>
                     </div>
-                    <input type="text" class="form-control" placeholder="First Name...">
+                    <input type="text" class="form-control" placeholder="Usuario..." name="username" id="username">
                   </div>
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -40,7 +40,7 @@
                         <i class="material-icons">mail</i>
                       </span>
                     </div>
-                    <input type="email" class="form-control" placeholder="Email...">
+                    <input type="email" class="form-control" placeholder="Email..." name="email" id="email">
                   </div>
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -48,14 +48,17 @@
                         <i class="material-icons">lock_outline</i>
                       </span>
                     </div>
-                    <input type="password" class="form-control" placeholder="Password...">
+                    <input type="password" class="form-control" placeholder="Senha..." name="password" id="password">
                   </div>
                 </div>
                 <div class="row m-0 mt-5">
                     <div class="col-12 text-center">
                         <button type="submit" class="btn btn-primary btn-block"> Login </button>
                     </div>
-                  </div>
+                </div>
+                <div class="footer text-center">
+                  <a href="{{ url_for('admin_bp.register_page') }}" class="btn btn-primary btn-link btn-wd btn-lg">Registrar</a>
+                </div>
               </form>
             </div>
           </div>

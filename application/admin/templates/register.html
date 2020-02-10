@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <title>
+    Toxic Comments - Register
+  </title>
+  <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, shrink-to-fit=no' name='viewport' />
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Roboto+Slab:400,700|Material+Icons" />
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+  <!-- CSS Files -->
+  <link href="{{url_for('static', filename = 'public/css/material-kit.min.css')}}" rel="stylesheet" />
+</head>
+
+<body class="login-page sidebar-collapse">
+  <div class="page-header header-filter" style="background-image: url('static/public/img/2486836.jpg'); background-size: cover; background-position: top center;">
+    <div class="container">
+        <div class="row">
+          <div class="col-lg-6 col-md-6 ml-auto mr-auto">
+            <div class="card card-login">
+              <form class="form" method="POST" id="resgiterform" name="resgiterform">
+                {{ form.csrf_token }}
+                <div class="card-header card-header-primary text-center">
+                  <h4 class="card-title">Registrar</h4>
+                </div>
+                <div class="card-body">
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">
+                            <i class="material-icons">person</i>
+                          </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Nome..." name="name" id="name">
+                    </div>  
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="material-icons">face</i>
+                        </span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="Usuario..." name="username" id="username">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="material-icons">mail</i>
+                        </span>
+                        </div>
+                        <input type="email" class="form-control" placeholder="Email..." name="email" id="email">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="material-icons">lock_outline</i>
+                        </span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="Senha..." name="password" id="password">
+                    </div>
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                        <span class="input-group-text">
+                            <i class="material-icons">lock</i>
+                        </span>
+                        </div>
+                        <input type="password" class="form-control" placeholder="Confirme sua senha..." name="confirmpassword" id="confirmpassword">
+                    </div>
+                </div>
+                <div class="row mt-3 m-0">
+                    <div class="col-12 text-center">
+                      <button type="submit" class="btn btn-primary btn-block"> Registrar </button>
+                    </div>
+                    <div class="col-12 text-center">
+                      <a href="{{ url_for('admin_bp.login_page') }}" class="btn btn-primary btn-link btn-wd btn-lg">Ja possui cadastro? Clique aqui</a>
+                    </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+  <!-- Core JS Files -->
+  <script src="{{url_for('static', filename = 'public/js/core/jquery.min.js')}}" type="text/javascript"></script>
+  <script src="{{url_for('static', filename = 'public/js/core/popper.min.js')}}" type="text/javascript"></script>
+  <script src="{{url_for('static', filename = 'public/js/core/bootstrap-material-design.min.js')}}" type="text/javascript"></script>
+  <script src="{{url_for('static', filename = 'public/js/plugins/moment.min.js')}}""></script>
+  <script src="{{url_for('static', filename = 'public/js/material-kit.min.js')}}""></script>
+
+  <!-- CDN Js Files -->
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.1/jquery.validate.min.js"></script>
+
+  <!-- Custom Js Files -->
+  <script src="{{url_for('static', filename = 'admin/register.js')}}"></script>
+  
+</body>
+
+</html>

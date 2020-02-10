@@ -48,7 +48,6 @@ $('document').ready(function(){
             contentType: 'application/json; charset=utf-8',
             success: function (data, result){
                 if(result == 'success'){
-                    console.log(JSON.stringify(data))
                     Swal.fire({
                         title: 'Obrigado!',
                         text: data.msg,
