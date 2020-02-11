@@ -19,28 +19,44 @@
   <div class="page-header header-filter" style="background-image: url('static/public/img/2486836.jpg'); background-size: cover; background-position: top center;">
     <div class="container">
         <div class="row">
+          <div class="col">
+            {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <div class="alert alert-danger">
+                  <div class="container">
+                    <div class="alert-icon">
+                      <i class="material-icons">error_outline</i>
+                    </div>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                      <span aria-hidden="true">
+                        <i class="material-icons">clear</i>
+                      </span>
+                    </button>
+                    {% for message in messages %}
+                      {{ message }}
+                    {% endfor %}  
+                  </div>
+                </div>
+              {% endif %}
+            {% endwith %}
+          </div>
+        </div>
+        <div class="row">
           <div class="col-lg-4 col-md-6 ml-auto mr-auto">
             <div class="card card-login">
-              <form class="form" method="" action="">
+              <form class="form" method="POST">
+                {{ form.csrf_token }}
                 <div class="card-header card-header-primary text-center">
                   <h4 class="card-title">Login</h4>
                 </div>
-                <div class="card-body">
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text">
-                        <i class="material-icons">face</i>
-                      </span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Usuario..." name="username" id="username">
-                  </div>
+                <div class="card-body" style="margin-top: 80px;">
                   <div class="input-group">
                     <div class="input-group-prepend">
                       <span class="input-group-text">
                         <i class="material-icons">mail</i>
                       </span>
                     </div>
-                    <input type="email" class="form-control" placeholder="Email..." name="email" id="email">
+                    {{form.email(class='form-control', placeholder='Email...')}}
                   </div>
                   <div class="input-group">
                     <div class="input-group-prepend">
@@ -48,16 +64,16 @@
                         <i class="material-icons">lock_outline</i>
                       </span>
                     </div>
-                    <input type="password" class="form-control" placeholder="Senha..." name="password" id="password">
+                    {{form.password(class='form-control', placeholder='Senha...')}}
                   </div>
                 </div>
                 <div class="row m-0 mt-5">
                     <div class="col-12 text-center">
-                        <button type="submit" class="btn btn-primary btn-block"> Login </button>
+                      {{form.submit(class='btn btn-primary btn-block')}}
                     </div>
                 </div>
                 <div class="footer text-center">
-                  <a href="{{ url_for('admin_bp.register_page') }}" class="btn btn-primary btn-link btn-wd btn-lg">Registrar</a>
+                  <a href="{{ url_for('admin.register_page') }}" class="btn btn-primary btn-link btn-wd btn-lg">Registrar</a>
                 </div>
               </form>
             </div>

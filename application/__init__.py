@@ -10,7 +10,7 @@ def create_app():
         from .home import home_routes
         from .admin import admin_routes
         app.register_blueprint(home_routes.home_bp)
-        app.register_blueprint(admin_routes.admin_bp)
+        app.register_blueprint(admin_routes.admin)
 
     return app
 
