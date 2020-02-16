@@ -3,13 +3,6 @@
 <div class="page-header header-filter" data-parallax="true" style="background-image: url('static/public/img/2486836.jpg')">
     <div class="container">
       <div class="row">
-        <div class="col-md-8 ml-auto mr-auto">
-          <div class="brand text-center">
-            <h1>Olá!</h1>
-          </div>
-        </div>
-      </div>
-      <div class="row">
         <div class="col-lg-12 ml-auto mr-auto">
           <div class="card ">
             <form class="form" method="" action="">
@@ -18,9 +11,14 @@
                 <h4 class="card-title">Aguardo pela sua opinião</h4>
               </div>
               <div class="card-body">
+                <div class="row">
+                  <div class="col-12 text-center"> 
+                     <p> Notícia do comentário:  <a href="{{data.2}}" target="_blank">  {{data.3}}</a> </p>
+                  </div>
+                </div>
                 <div class="row"> 
-                  <div class="col-md-12 ml-auto mr-auto mt-2">
-                    <textarea class="form-control font-weight-bold" disabled id="{{data.0}}" rows="5">{{ data.1 }}</textarea>
+                  <div class="col-12 ml-auto mr-auto mt-2">
+                    <textarea class="form-control font-weight-bold" disabled id="{{data.0}}" rows="5"> {{ data.1 }}</textarea>
                   </div>
                 </div> 
                 <div class="row mt-2">
@@ -35,7 +33,6 @@
                     </div>
                   </div>
                 </div>
-
               </div>
               <div class="footer text-center">
                 <p class="text-muted">*Os textos apresentados acima não são de autoria do site</p>
@@ -46,8 +43,8 @@
       </div>
     </div>
 </div>
-  <div class="main main-raised">
-    <div class="container">
+<div class="main main-raised">
+  <div class="container">
       <div class="section text-center" id="entenda">
         <div class="row">
           <div class="col-md-12 ml-auto mr-auto">
@@ -104,7 +101,48 @@
             </div>
         </div>
       </div>
+      </div>
+      <div class="section text-center" id="sobre">
+        <div class="row">
+          <div class="col-md-8 ml-auto mr-auto">
+            <h2 class="title">Sobre o Projeto</h2>
+            <h5 class="description">
+              Para o desenvolvimento deste <i>website</i> foi realizado um estudo da linguagem Python e suas bibliotecas para raspagem de dados, especificamente comentários públicos em notícias do site <a href="https://g1.globo.com/" target="_blank">g1.globo.com/</a>, a fim de realizar a classificação dos dados capturados como ofensivos ou não ofensivos e, se ofensivos, qual é a categoria (tipo de ofensa). O site é baseado no conceito de <i> crowdsourcing</i>, ou seja, um sistema de contribuição colaborativa ou coletiva, na qual diversos usuários, como você, visualizarão os comentários de forma aleatória e indicarão se o comentário é ofensivo ou não, assim como sua categoria, caso desejarem. 
+            </h5>
+          </div>
+        </div>
+      </div>
+  </div>  
+</div>
+
+<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true" id=>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Tipos de Ofensas</h5>
+      </div>
+      <div class="modal-body">
+        <p>Defina o tipo de ofensa para o comentário avaliado </p>
+        <blockquote class="blockquote">
+          <p class="mb-0">{{data.1}}</p>
+        </blockquote>
+        <form class="form" method="POST"> 
+          <div class="fomr-group">
+            <label>Escolha uma das opções para categorizar essa ofensa</label>
+            {{form.toxic_types(class='form-control select-picker')}}
+          </div>
+        </form>
+        <div class="row">
+          <div class="col-12 text-center">
+            <button type="button" class="btn btn-block btn-primary" id="definetoxicbtn">Definir!</button>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer text-center">
+        
+      </div>
     </div>
   </div>
+</div>
 
-  {% endblock %}
+{% endblock %}

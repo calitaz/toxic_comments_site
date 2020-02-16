@@ -1,5 +1,5 @@
 $('document').ready(function(){
-   
+    
     $("#toxicbtn").click(function(){
         var id = $("#commentid").val();
 
@@ -11,15 +11,7 @@ $('document').ready(function(){
             contentType: 'application/json; charset=utf-8',
             success: function (data, result){
                 if(result == 'success'){
-                    console.log(JSON.stringify(data))
-                    Swal.fire({
-                        title: 'Obrigado!',
-                        text: data.msg,
-                        icon: 'success',
-                        confirmButtonText: 'Ok'
-                    }).then(function(){
-                        window.location.reload();
-                    });
+                    $('.bd-example-modal-lg').modal('show');
                 } else {
                     Swal.fire({
                         title: 'Ooops',
@@ -73,5 +65,43 @@ $('document').ready(function(){
         })
     });
 
+    $("#definetoxicbtn").click(function(){
+        var idcomment = $("#commentid").val();
+        var idtype = $("#toxic_types").val();
+
+        $.ajax({
+            url: '/define_toxic',
+            type: 'POST',
+            data: JSON.stringify({ "idcomment" : idcomment, "idtype": idtype } ),
+            dataType: 'json',
+            contentType: 'application/json; charset=utf-8',
+            success: function (data, result){
+                console.log(data);
+                if(result == 'success'){
+                    $('.bd-example-modal-lg').modal('hide');
+                    Swal.fire({
+                        title: 'Obrigado!',
+                        text: data.msg,
+                        icon: 'success',
+                        confirmButtonText: 'Ok'
+                    }).then(function(){
+                        window.location.reload();
+                    });
+                } else {
+                    Swal.fire({
+                        title: 'Ooops',
+                        text: 'Algo de errado aconteceu',
+                        icon: 'error'
+                    })
+                }
+            },
+            error: function (event, jqxhr, settings, thrownError){
+                console.log('event: ' + JSON.stringify(event));
+                console.log('jqxhr: ' + jqxhr);
+                console.log('settings: ' + settings);
+                console.log('thrownError: ' + thrownError);
+            }
+        })
+    })
 
 });
